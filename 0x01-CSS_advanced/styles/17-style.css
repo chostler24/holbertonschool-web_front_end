@@ -49,7 +49,7 @@ a:active {
 
 .section-header {
     text-align: var(--section-header-align);
-    padding: var(--section-padding);
+    padding: var(--section-header-padding);
 }
 
 .section-body {
