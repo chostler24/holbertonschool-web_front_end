@@ -1,0 +1,12 @@
+@mixin bla($size: 10px) {
+    margin-left: $size;
+    margin-right: $size;
+}
+
+body {
+    @include bla;
+}
+
+div {
+    @include bla($size: 15px);
+}
