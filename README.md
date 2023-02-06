@@ -1,1 +1,1 @@
-Repository for work in front-end programming for Holberton School.
+# Repository for work in front-end programming for Holberton School
