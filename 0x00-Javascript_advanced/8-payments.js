@@ -4,7 +4,7 @@ function processPayment(amount) {
 
 function processOrder(orderId, amount) {
     console.log(orderId + ' is being processed');
-    processPayment();
+    processPayment(amount);
     console.log(orderId + ' has been fully processed');
 }
 
