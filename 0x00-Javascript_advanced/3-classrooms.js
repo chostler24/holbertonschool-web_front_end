@@ -1,7 +1,7 @@
 function createClassRoom(numbersOfStudents) {
 
     function studentSeat(seat) {
-        return () => {return (seat);}
+        return () => {return (seat);}           /* return () => seat */
     };
 
     let students = [];
