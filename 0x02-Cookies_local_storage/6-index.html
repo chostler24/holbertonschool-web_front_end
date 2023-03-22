@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous">
+        </script>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                $('body').append('<table><thead><tr><th>Firstname<th>Lastname<tbody>');
+            };
+
+            function addNewMember(firstName, lastName, position) {
+                if (position === 'before') {
+                    $('tbody').prepend('<tr><td>' + firstName + '<td>' + lastName + '<td>(x)');
+                } else {
+                    $('tbody').append('<tr><td>' + firstName + '<td>' + lastName + '<td>(x)');
+                }
+                const x = $('td:nth-child(3)');
+                x.css('background-color', 'orange');
+                x.on('click', function() {
+                    $(this).parent('tr').remove();
+                });
+            };
+
+            function createForm() {
+                $(table).before(
+                    `<form>
+                        <input type="text">
+                        <input type="text">
+                        <select>
+                            <option value="before">Before</option>
+                            <option value="after">After</option>
+                        </select>
+                        <input type="button" id="submit" value="Submit">
+                    </form>`
+                )
+
+                $('#submit').click(() => {
+                    addNewMember(
+                        $('input:first').val(),
+                        $('input:nth-of-type(2)').val(),
+                        $('select').find(':selected').text().toLowerCase()
+                    );
+                });
+            };
+            createFamilyTree();
+            createForm();
+            addNewMember('Guillaume', 'Salva');
+            addNewMember('Arielle', 'Snizt');
+            addNewMember('Fanette', 'Snizt');
+            addNewMember('Gerard', 'Snizt');
+            addNewMember('Victor', 'Snizt');
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
