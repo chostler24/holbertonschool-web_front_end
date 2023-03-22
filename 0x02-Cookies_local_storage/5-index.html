@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies & local storage</title>
+    <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js "></script>
+</head>
+<body>
+    <!-- JavaScript functions -->
+    <script>
+        let availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
+
+        if (!localStorage) {
+            alert('Sorry, your browser does not support Web storage. Try again with a better one');
+        } else {
+            createStore();
+            displayCart();
+        };
+
+        function addItemToCart(item) {
+            localStorage.setItem(item, true);
+        };
+
+        function createStorage() {
+            const unlist = document.createElement('ul');
+            document.body.appendChild(unlist);
+
+            availableItems.forEach((item) => {
+                const listitem = document.createElement('li');
+                listitem.innerHTML = item;
+                listitem.addEventListener('click', () => {
+                    addItemToCart(listitem.innerHTML);
+                });
+                unlist.appendChild(listitem);
+            });
+        };
+
+        function displayCart() {
+            if (localStorage) {
+                const para = document.createElement('p');
+                para.innerHTML = 'You previously had ' + localStorage.length + ' items in your cart';
+                document.body.append(para);
+            };
+        };
+    </script>
+
+    <!-- HTML elements -->
+</body>
+</html>

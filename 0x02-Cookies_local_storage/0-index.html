@@ -9,10 +9,10 @@
 <body>
     <!-- JavaScript functions -->
     <script>
-        function setCookies(firstname, email) {
-            firstname = document.getElementById('firstname').value;
+        function setCookies() {
+            const firstname = document.getElementById('firstname').value;
             document.cookie = 'firstname=' + firstname;
-            email = document.getElementById('email').value;
+            const email = document.getElementById('email').value;
             document.cookie = 'email=' + email;
         }
         function showCookies() {
