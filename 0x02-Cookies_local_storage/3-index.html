@@ -11,7 +11,7 @@
     <script>
         function setCookies(firstname, email) {
             let date = new Date();
-            date.setTime(date.getTime());
+            date.setTime(date.getTime() + 10*24*60*60*1000);
             date = date.toUTCString();
 
             firstname = document.getElementById('firstname').value;
@@ -52,17 +52,17 @@
         }
 
         function deleteCookiesAndShowForm() {
-            document.cookie = 'firstname=';
-            document.cookie = 'email=';
+            let exp = new Date(Date.now());
+            document.cookie = 'firstname= ;expires=' + exp.toUTCString();
+            document.cookie = 'email= ; expires=' + exp.toUTCString();
             showForm();
         }
 
         function showWelcomeMessageOrForm() {
-            const first = getCookie('firstname');
-            if (first === '') {
-                showForm();
+            if (document.cookie) {
+                hideForm();
             } else {
-
+                showForm();
             }
         }
     </script>
